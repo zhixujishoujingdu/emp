@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="per.zqx.dao.EmpMapper">
+    <resultMap id="BaseResultMap" type="per.zqx.domain.Emp">
+        <id column="EMPNO" property="empno" jdbcType="INTEGER"/>
+        <result column="ENAME" property="ename" jdbcType="VARCHAR"/>
+        <result column="JOB" property="job" jdbcType="VARCHAR"/>
+        <result column="MGR" property="mgr" jdbcType="INTEGER"/>
+        <result column="HIREDATE" property="hireDate" jdbcType="DATE"/>
+        <result column="SAL" property="sal" jdbcType="DOUBLE"/>
+        <result column="COMM" property="comm" jdbcType="DOUBLE"/>
+        <result column="DEPTNO" property="deptno" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+      EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+    </sql>
+    <select id="listEmp" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from emp
+    </select>
+</mapper>
